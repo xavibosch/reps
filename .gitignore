@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+.vercel
+desktop/node_modules
+desktop/build
+desktop/out
+.DS_Store
+tsconfig.tsbuildinfo

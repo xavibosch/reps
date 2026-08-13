@@ -1,0 +1,16 @@
+{
+  "name": "reps-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Native shell for the Reps home gym dashboard",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . Reps --platform=darwin --arch=arm64 --out=build --overwrite --app-bundle-id=website.boschwebs.reps --extend-info=camera.plist && cp icon.icns build/Reps-darwin-arm64/Reps.app/Contents/Resources/electron.icns",
+    "install-app": "ditto build/Reps-darwin-arm64/Reps.app /Applications/Reps.app && xattr -cr /Applications/Reps.app && codesign --force --deep --sign - --identifier website.boschwebs.reps /Applications/Reps.app"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^43.0.0"
+  }
+}

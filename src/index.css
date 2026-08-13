@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0c0b09;
+  --fg: #f5f4ef;
+  --accent: #d63022;
+  --line: rgba(245, 244, 239, 0.12);
+  --line-strong: rgba(245, 244, 239, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Mono', ui-monospace, monospace;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Kill scrollbars everywhere — this is a gesture-driven, zero-scroll surface. */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.font-display {
+  font-family: 'Big Shoulders Display', 'DM Mono', sans-serif;
+  font-stretch: condensed;
+  margin: 0;
+}
+
+.label {
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  color: rgba(245, 244, 239, 0.55);
+}
+
+button {
+  font-family: 'DM Mono', monospace;
+}
+
+input {
+  border-radius: 0;
+}
+input:focus {
+  border-color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--fg);
+}
+
+@keyframes eq {
+  from {
+    transform: scaleY(0.4);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Track change: the artwork and text are keyed by track id, so React remounts
+   them and these run once per song. Only opacity/filter/inner-transform are
+   animated, never the parent's 3D fan transform, which must stay put. */
+@keyframes coverIn {
+  from {
+    opacity: 0;
+    filter: blur(10px) grayscale(1);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) grayscale(0);
+  }
+}
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(214, 48, 34, 0);
+  }
+  35% {
+    box-shadow: 0 0 46px rgba(214, 48, 34, 0.75);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(214, 48, 34, 0.36);
+  }
+}

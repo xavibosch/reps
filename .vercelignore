@@ -1,0 +1,4 @@
+# The Electron shell is a local artefact: its node_modules and packaged .app
+# are ~324 MB and blow past Vercel's upload limit. Nothing here is served.
+desktop
+scripts
